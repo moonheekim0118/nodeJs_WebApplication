@@ -2,6 +2,7 @@ var http = require('http');
 var testFolder ='./data';
 var url = require('url');
 var fs = require('fs');
+var qs = require('querystring');
 var template =require('./lib/template.js');
 
 var app = http.createServer(function(request,response){
@@ -21,6 +22,23 @@ var app = http.createServer(function(request,response){
           response.end(result);
         });
       });
+  }
+  else if(pathname=="/send"){
+    var body = '';
+      request.on('data', function(data){
+          body = body + data; });
+
+      request.on('end', function(){
+          var post = qs.parse(body);
+          var id = post.id;
+          var description ="<p>";
+          description+=post.description+` ♥♥♥을담아 ${id}로부터...</p>`;
+            fs.appendFile('data/LettersToBoogie',description, 'utf8', function(err){
+              if(err) throw err;
+              response.writeHead(302, {Location: '/?id=LettersToBoogie'});
+              response.end();
+            });
+          });
   }
   else //유효하지 않은 쿼리
   {

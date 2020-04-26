@@ -1,0 +1,10 @@
+<h3>부기왕에게 편지를 쓰세요</h3>
+<form action="/send" method="post">
+<p><input type="text" name="id" placeholder="당신의 이름"></p>
+<p>
+    <textarea name="description" placeholder="편지 쓰세요"></textarea>
+</p>
+<p>
+    <input type="submit" value="부기에게 마음을 담아 전송하기">
+</p>
+</form>
