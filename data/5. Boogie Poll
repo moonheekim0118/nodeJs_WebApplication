@@ -1,6 +1,5 @@
-
-<form action="http://localhost:3000/poll_submit" method="post">
   <h2> 부기의 매력을 투표해주세요! </h2>
+<form action="/poll_submit" method="post">
   <p><input type="radio" name="charming" value="cute"> 귀여움</p>
   <p><input type="radio" name="charming" value="pretty"> 예쁨</p>
   <p><input type="radio" name="charming" value="funny"> 웃김</p>
@@ -9,15 +8,3 @@
     <input type="submit" value="전송하기">
   </p>
 </form>
-
-<script>
-  var result={
-    cute:0,
-    pretty:0,
-    funny:0,
-    smart:0
-  }
-  for(var n : result){
-    console.log( n  ":" + result[n] );
-  }
-</script>
